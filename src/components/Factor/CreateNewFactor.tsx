@@ -3,8 +3,10 @@ import {IFactor, IFactorData} from "../../models";
 import axios from "axios";
 import FactorService from "../../services/FactorService";
 import {ErrorMessage} from "../ErrorMessage";
+import {randomInt} from "crypto";
 
-const factorData: IFactorData ={
+const factorData: IFactor ={
+    factorId:Math.random()*10 + 100,
     factorName:"",
     factorShortName:""
 }
@@ -38,6 +40,7 @@ export function CreateNewFactor({onCreate}: CreateFactorProps){
             setError('Please Enter valid annotation.')
             return
         }
+
 
 
 

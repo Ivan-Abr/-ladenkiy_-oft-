@@ -56,8 +56,8 @@ export function EditMilestone({milestoneId,onEdit}: EditMilesProps){
         <form onSubmit={SubmitHandler} className="mb-3"
         >
             <input
-                id = "dateFrom"
-                type="text"
+                id="dateFrom"
+                type="date"
                 className={inputStyle}
                 placeholder="Enter organization value"
                 value={value}
@@ -66,7 +66,7 @@ export function EditMilestone({milestoneId,onEdit}: EditMilesProps){
 
             <input
                 id="dateTo"
-                type="text"
+                type="date"
                 className={inputStyle}
                 placeholder="Enter organization annotation"
                 value={dateTo}
@@ -74,7 +74,7 @@ export function EditMilestone({milestoneId,onEdit}: EditMilesProps){
             ></input>
 
             <input
-                id = "year"
+                id="year"
                 type="text"
                 className={inputStyle}
                 placeholder="Enter organization contacts"
@@ -86,6 +86,7 @@ export function EditMilestone({milestoneId,onEdit}: EditMilesProps){
             {error && <ErrorMessage error={error}/>}
             <button type="submit">Save</button>
         </form>
+
 
     )
 }
