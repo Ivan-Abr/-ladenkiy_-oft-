@@ -59,7 +59,7 @@ export function EditMilestone({milestoneId,onEdit}: EditMilesProps){
                 id="dateFrom"
                 type="date"
                 className={inputStyle}
-                placeholder="Enter organization value"
+                placeholder="Enter start date"
                 value={value}
                 onChange={event => setValue(event.target.value)}
             />
@@ -68,7 +68,7 @@ export function EditMilestone({milestoneId,onEdit}: EditMilesProps){
                 id="dateTo"
                 type="date"
                 className={inputStyle}
-                placeholder="Enter organization annotation"
+                placeholder="Enter finish date"
                 value={dateTo}
                 onChange={event => setDateTo(event.target.value)}
             ></input>
@@ -77,7 +77,7 @@ export function EditMilestone({milestoneId,onEdit}: EditMilesProps){
                 id="year"
                 type="text"
                 className={inputStyle}
-                placeholder="Enter organization contacts"
+                placeholder="Enter year"
                 value={year}
                 onChange={event => setYear(event.target.value)}
             ></input>

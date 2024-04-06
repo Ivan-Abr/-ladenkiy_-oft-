@@ -58,7 +58,7 @@ export function CreateNewFactor({onCreate}: CreateFactorProps){
                 id = "name"
                 type="text"
                 className={inputStyle}
-                placeholder="Enter factoranization value"
+                placeholder="Enter factor name"
                 value={value}
                 onChange={event => setValue(event.target.value)}
             />
@@ -67,7 +67,7 @@ export function CreateNewFactor({onCreate}: CreateFactorProps){
                 id="annot"
                 type="text"
                 className={inputStyle}
-                placeholder="Enter factoranization annotation"
+                placeholder="Enter factor shortname"
                 value={short}
                 onChange={event => setShort(event.target.value)}
             ></input>

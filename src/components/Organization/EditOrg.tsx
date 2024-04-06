@@ -27,7 +27,7 @@ export function EditOrg({orgId, onEdit}: EditOrgProps){
 
 
         if (value.trim().length === 0){
-            setError('Please Enter valid value.')
+            setError('Please Enter valid name.')
             return
         }
 
@@ -60,7 +60,7 @@ export function EditOrg({orgId, onEdit}: EditOrgProps){
             id="name"
             type="text"
             className={inputStyle}
-            placeholder="Enter organization value"
+            placeholder="Enter organization name"
             value={value}
             onChange={event => setValue(event.target.value)}
         />
