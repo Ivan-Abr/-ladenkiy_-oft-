@@ -5,6 +5,7 @@ import {LayerComponent} from "./components/Layer/LayerComponent";
 import {FactorComponent} from "./components/Factor/FactorComponent";
 import {MilesComponent} from "./components/Milestone/MilestoneComponent";
 import {MarkComponent} from "./components/Mark/MarkComponent";
+import {QuestionComponent} from "./components/Question/QuestionComponent";
 
 
 
@@ -62,7 +63,12 @@ function App (){
     {
       title:"Mark",
       content:<MarkComponent/>
+    },
+    {
+      title:"Question",
+      content:<QuestionComponent/>
     }
+
 
   ];
   return <BookmarkMenu bookmarks={bookmarks}/>

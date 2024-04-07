@@ -29,4 +29,6 @@ const QuestionService ={
     createQuestion:(question: IQuestion)=>{
         return axios.post(QUESTION_API_URL,question)
     }
+
 }
+export default QuestionService
