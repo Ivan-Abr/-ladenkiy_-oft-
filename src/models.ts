@@ -1,3 +1,5 @@
+import exp from "node:constants";
+
 export interface IOrg{
     orgId: number;
     orgName: string;
@@ -45,4 +47,10 @@ export interface IMark{
     markId: number,
     markName: string,
     markValue: number
+}
+
+export interface IQuestion{
+    questionId: number,
+    questionName: string,
+    questionAnnot: string
 }
