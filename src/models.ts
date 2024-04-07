@@ -21,6 +21,7 @@ export interface IFactor{
     factorId: number;
     factorName: string;
     factorShortName: string;
+
 }
 
 export interface IFactorData{

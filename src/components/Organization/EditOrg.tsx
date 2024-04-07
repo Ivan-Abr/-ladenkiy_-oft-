@@ -15,15 +15,26 @@ interface EditOrgProps{
 }
 
 
+
 export function EditOrg({orgId, onEdit}: EditOrgProps){
+
     const [value, setValue] = useState('')
     const [annot, setAnnot] = useState('')
     const [contacts, setContacts] = useState('')
     const [error, setError] = useState('')
 
+
+
     const SubmitHandler = async (event: React.FormEvent) =>{
         event.preventDefault()
         setError('')
+
+        // OrgService.getOrgById(orgId).then((response)=>{
+        //     setValue(response.data.orgName);
+        //     setAnnot(response.data.orgAnnot);
+        //     setContacts(response.data.orgContacts);}
+        // );
+
 
 
         if (value.trim().length === 0){

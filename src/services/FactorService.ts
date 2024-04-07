@@ -28,6 +28,10 @@ const FactorService={
 
     createFactor:(factor: IFactorData)=>{
         return axios.post(FACTOR_API_URL, factor)
+    },
+
+    assignQuestionToFactor:(factorId: number, questionId: number)=>{
+        return axios.put(FACTOR_API_URL+"/"+factorId+"/question/"+questionId)
     }
 }
 
