@@ -9,6 +9,10 @@ const FactorService={
         return axios.get(FACTOR_API_URL)
     },
 
+    getFactorById:(factorId: number)=>{
+        return axios.get(FACTOR_API_URL + "/"+factorId)
+    },
+
     editFactor:(factorId:number, factor: IFactorData)=>{
         const data: IFactor = {
             factorId: factorId,

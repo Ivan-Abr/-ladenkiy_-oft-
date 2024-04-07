@@ -8,6 +8,10 @@ const MarkService = {
         return axios.get(MARK_API_URL);
     },
 
+    getMarkById:(markId: number)=>{
+        return axios.get(MARK_API_URL+"/"+markId);
+    },
+
     editMark:(markId: number, mark:IMark)=>{
         return axios.put(MARK_API_URL+"/"+markId, mark);
     },

@@ -10,6 +10,10 @@ const OrgService = {
         return axios.get(ORG_API_URL);
     },
 
+    getOrgById: (orgId: number)=>{
+        return axios.get(ORG_API_URL+"/"+orgId)
+    },
+
     editOrg:(orgId: number, org: IOrgData)=>{
 
         return axios.put(ORG_API_URL+"/"+orgId, org);

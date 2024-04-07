@@ -9,6 +9,10 @@ const LayerService = {
         return axios.get(LAYER_API_URL)
     },
 
+    getLayerById:(layerId: number)=>{
+        return axios.get(LAYER_API_URL+"/"+layerId)
+    },
+
     editLayer:(layerId: number, layer: ILayer)=>{
         const data: ILayer = {
             layerId: layerId,

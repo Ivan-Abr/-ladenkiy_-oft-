@@ -9,6 +9,10 @@ const MilestoneService = {
         return axios.get(MILE_API_URL);
     },
 
+    getMilesById:(milesId: number)=>{
+        return axios.get(MILE_API_URL+"/"+milesId)
+    },
+
     editMiles:(milesId: number, miles: IMilestone)=>{
         return axios.put(MILE_API_URL + "/" + milesId, miles)
     },
