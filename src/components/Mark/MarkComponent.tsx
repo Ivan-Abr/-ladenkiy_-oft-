@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState} from "react";
-import {IMark} from "../../models";
+import {ILayer, IMark} from "../../models";
 import useModal from "../../hooks/useModal";
 import {ModalContext} from "../../context/ModalContext";
 import MarkService from "../../services/MarkService";
@@ -8,6 +8,9 @@ import {CreateNewLayer} from "../Layer/CreateNewLayer";
 import {DeleteLayer} from "../Layer/DeleteLayer";
 import Modal from "../Modal";
 import {CreateNewMark} from "./CreateNewMark";
+import markService from "../../services/MarkService";
+import {EditMark} from "./EditMark";
+import {DeleteMark} from "./DeleteMark";
 
 
 
@@ -41,15 +44,57 @@ export function MarkComponent(){
         setMark(prev => [...prev, mark])
     }
 
+    function editMark(mark : IMark){
+        const index = marks.findIndex((m) => m.markId === mark.markId);
+        if (index !== -1){
+            const updateMarks = [...marks];
+            updateMarks[index] = mark;
+            setMark(updateMarks);
+        }
+    }
+
+    function deleteMark(mark: IMark){
+        const index = marks.findIndex((m) => m.markId === mark.markId);
+        if (index !== -1){
+            const updatedMarks = marks.filter((m) => m.markId !== mark.markId);
+            setMark(updatedMarks)
+        }
+    }
+
     const createHandler = (mark: IMark)=>{
         close()
         addMark(mark)
         refreshPage()
     }
 
+    const editHandler = (mark: IMark)=>{
+        close();
+        editMark(mark);
+        refreshPage()
+    }
+
+
+    const deleteHandler = (mark: IMark)=>{
+        close()
+        deleteMark(mark);
+        refreshPage();
+    }
+
     function handleCreateClick(){
         setMode("create");
         toggle()
+    }
+
+    function handleEditClick(markId:number){
+        setSelectedId(markId);
+        setMode("edit");
+        toggle();
+    }
+
+    function handleDeleteClick(markId: number){
+        setSelectedId(markId)
+        setMode("delete")
+        toggle();
     }
 
     return(
@@ -69,8 +114,11 @@ export function MarkComponent(){
                         <td>{mark.markName}</td>
                         <td>{mark.markValue}</td>
                         <td>
-                            <button>edit</button>
-                            <button>delete</button>
+                            <button className={btnClasses.join(' ')}
+                                             onClick={()=>handleEditClick(mark.markId)}>edit</button>
+                            <button className={btnClasses.join(' ')}
+                                    onClick={()=>handleDeleteClick(mark.markId)}
+                            >delete</button>
                         </td>
                     </tr>
                 ))}
@@ -78,12 +126,12 @@ export function MarkComponent(){
             </table>
             <button onClick={()=> handleCreateClick()}>Create new</button>
             <Modal isOpen={isOpen} toggle={toggle} mode={mode}>
-                {mode === "edit" ?(<p>Daun</p>
-                    // <EditLayer onEdit={editHandler} layerId={selectedId}/>
+                {mode === "edit" ?(
+                    <EditMark onEdit={editHandler} markId={selectedId}/>
                 ):(
                     mode === "create" ?(<CreateNewMark onCreate={createHandler}/>):
-                        (mode === "delete" ? (<p>Daun</p>
-                            // <DeleteLayer onDelete={deleteHandler} layerId={selectedId}/>
+                        (mode === "delete" ? (
+                            <DeleteMark onDelete={deleteHandler} markId={selectedId}/>
 
                         ):(<p>Error</p>)))}
             </Modal>
