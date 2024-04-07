@@ -39,3 +39,9 @@ export interface IMilestoneData{
     dateTo: string;
     year: string;
 }
+
+export interface IMark{
+    markId: number,
+    markName: string,
+    markValue: number
+}

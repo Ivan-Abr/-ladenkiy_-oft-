@@ -4,6 +4,7 @@ import {OrgComponent} from "./components/Organization/OrgComponent";
 import {LayerComponent} from "./components/Layer/LayerComponent";
 import {FactorComponent} from "./components/Factor/FactorComponent";
 import {MilesComponent} from "./components/Milestone/MilestoneComponent";
+import {MarkComponent} from "./components/Mark/MarkComponent";
 
 
 
@@ -57,6 +58,10 @@ function App (){
     {
       title:"Milestone",
       content:<MilesComponent/>
+    },
+    {
+      title:"Mark",
+      content:<MarkComponent/>
     }
 
   ];
