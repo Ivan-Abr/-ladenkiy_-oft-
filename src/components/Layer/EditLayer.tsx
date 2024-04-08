@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ILayer } from "../../models";
+import {ILayer, ILayerCut} from "../../models";
 import LayerService from "../../services/LayerService";
 import { ErrorMessage } from "../ErrorMessage";
 
@@ -26,8 +26,7 @@ export function EditLayer({layerId, onEdit}: EditLayerProps){
             return
         }
 
-        const layerData: ILayer = {
-            layerId:layerId,
+        const layerData: ILayerCut = {
             layerName:value
         }
 

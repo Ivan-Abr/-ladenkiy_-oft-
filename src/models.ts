@@ -1,5 +1,7 @@
 import exp from "node:constants";
 
+
+
 export interface IOrg{
     orgId: number;
     orgName: string;
@@ -13,11 +15,25 @@ export interface IOrgData{
 }
 
 
+
+
+
+
+
 export interface ILayer{
     layerId: number;
     layerName: string;
+    questionIds:number[];
 
 }
+
+export interface ILayerCut{
+    layerName:String
+}
+
+
+
+
 
 export interface IFactor{
     factorId: number;
@@ -26,10 +42,16 @@ export interface IFactor{
 
 }
 
+
+
+
 export interface IFactorData{
     factorName:string
     factorShortName: string
 }
+
+
+
 
 export interface IMilestone{
     milestoneId: number;
