@@ -1,80 +1,46 @@
 import React, {useState} from 'react';
 import './App.css';
-import {OrgComponent} from "./components/Organization/OrgComponent";
-import {LayerComponent} from "./components/Layer/LayerComponent";
-import {FactorComponent} from "./components/Factor/FactorComponent";
-import {MilesComponent} from "./components/Milestone/MilestoneComponent";
-import {MarkComponent} from "./components/Mark/MarkComponent";
-import {QuestionComponent} from "./components/Question/QuestionComponent";
+import {Bookmarks} from "./components/Bookmarks";
+
+import {TestComponent} from "./components/TestPage/TestComponent";
+import {HashRouter as Router, Link, Route, Routes} from "react-router-dom";
+import {TestGreeting} from "./components/TestPage/TestGreeting";
+import {Menu} from "./components/Menu";
 
 
 
-interface Bookmark {
-  title: string;
-  content: JSX.Element;
-}
 
 
-const BookmarkMenu: React.FC<{bookmarks: Bookmark[]}> = ({bookmarks}) => {
-  const [selectedBookmark, setSelectedBookmark] = useState<Bookmark | null>(null);
 
-
-  return (
-      <div className="bookmark-menu">
-        <ul className="bookmark-list">
-          {bookmarks.map((bookmark, index) => (
-              <li key={index} onClick={() => setSelectedBookmark(bookmark)}>
-                {bookmark.title}
-              </li>
-          ))}
-        </ul>
-        <div className="bookmark-content">
-          {selectedBookmark && (
-              <div>
-                <h2>{selectedBookmark.title}</h2>
-                <p>{selectedBookmark.content}</p>
-              </div>
-          )}
-        </div>
-      </div>
-  );
-
-
-};
 
 function App (){
-  const bookmarks: Bookmark[] = [
-    {
-      title:"Organization",
-      content: <OrgComponent/>
-    },
-    {
-      title:"Layer",
-      content:<LayerComponent/>
-    },
-    {
-      title:"Factor",
-      content:<FactorComponent/>
-    },
-    {
-      title:"Milestone",
-      content:<MilesComponent/>
-    },
-    {
-      title:"Mark",
-      content:<MarkComponent/>
-    },
-    {
-      title:"Question",
-      content:<QuestionComponent/>
-    }
+    const [menuOpen, setMenuOpen] = useState(false);
+    const [menuName, setMenuName] = useState<"Start"|"Back">("Start")
 
+    const toggleMenu = () => {
+        setMenuOpen(!menuOpen)
+        if (menuOpen)
+            setMenuName("Start")
+        else setMenuName("Back")
+    };
 
-  ];
-  return <BookmarkMenu bookmarks={bookmarks}/>
+  return(
+      <div className="App">
+          <button onClick={toggleMenu}>{menuName}</button>
+          {menuOpen && <Menu/>}
+          {!menuOpen && <Greeting/>}
+
+      </div>
+  )
 };
 
-
+export function Greeting(){
+    return (<div>
+            <h2>Добро пожаловать</h2>
+            <p>Чтобы продолжить, нажмите кнопку Start</p>
+        </div>
+    );
+}
 
 
 export default App;
