@@ -23,8 +23,6 @@ export interface IOrgData{
 export interface ILayer{
     layerId: number;
     layerName: string;
-    questionIds:number[];
-
 }
 
 export interface ILayerCut{
@@ -75,4 +73,5 @@ export interface IQuestion{
     questionId: number,
     questionName: string,
     questionAnnot: string
+    marks?: IMark[]
 }

@@ -115,7 +115,6 @@ export function LayerComponent(){
                     <tr key={layer.layerId}>
                         <td>{layer.layerId}</td>
                         <td>{layer.layerName}</td>
-                        <td>{layer.questionIds}</td>
                         <td>
                             <button className={btnClasses.join(' ')}
                                     onClick={()=>handleEditClick(layer.layerId)}

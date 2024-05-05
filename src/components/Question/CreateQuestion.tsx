@@ -8,7 +8,8 @@ import {ErrorMessage} from "../ErrorMessage";
 const questData: IQuestion = {
     questionId: Math.random()+100,
     questionName:"",
-    questionAnnot:""
+    questionAnnot:"",
+    marks:[]
 }
 
 

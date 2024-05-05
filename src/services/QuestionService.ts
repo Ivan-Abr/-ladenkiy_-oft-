@@ -13,11 +13,16 @@ const QuestionService ={
         return axios.get(QUESTION_API_URL+"/"+questionId)
     },
 
+    getMarksByQuestionId:(questionId: number)=>{
+        return axios.get(QUESTION_API_URL+"/"+questionId+"/marks")
+    },
+
     editQuestion:(questionId: number, question: IQuestion)=>{
         const data: IQuestion ={
             questionId: questionId,
             questionName: question.questionName,
-            questionAnnot: question.questionAnnot
+            questionAnnot: question.questionAnnot,
+            marks:question.marks
         }
         return axios.put(QUESTION_API_URL+"/"+questionId, data)
     },

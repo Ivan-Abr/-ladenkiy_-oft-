@@ -28,7 +28,6 @@ const LayerService = {
         const data: ILayer = {
             layerId: layer.layerId,
             layerName: layer.layerName,
-            questionIds: layer.questionIds
         }
         return axios.post(LAYER_API_URL, data);
     }

@@ -3,6 +3,7 @@ import {IQuestion} from "../../models";
 import exp from "node:constants";
 import QuestionService from "../../services/QuestionService";
 import {ErrorMessage} from "../ErrorMessage";
+import axios from "axios";
 
 
 
@@ -20,6 +21,9 @@ export function EditQuestion({questionId,onEdit}: EditQuestionProps){
     const [name, setName] = useState('')
     const [annot, setAnnot] = useState('')
     const [error, setError] = useState('')
+    const [oldData, setOldData] = useState<IQuestion|null>(null)
+
+    QuestionService.getQuestionById(questionId).then(response=>{setOldData(response.data)})
 
     const SubmitHandler = async (event: React.FormEvent) =>{
         event.preventDefault()
@@ -37,7 +41,8 @@ export function EditQuestion({questionId,onEdit}: EditQuestionProps){
         const questData: IQuestion = {
             questionId: questionId,
             questionName:name,
-            questionAnnot: annot
+            questionAnnot: annot,
+            marks: oldData?.marks
         }
         const response = await QuestionService.editQuestion(questionId,questData)
         onEdit(response.data)

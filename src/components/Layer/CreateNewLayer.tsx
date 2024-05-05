@@ -6,7 +6,6 @@ import { ErrorMessage } from "../ErrorMessage";
 const layerData: ILayer = {
     layerId: Math.random()*10 + 10,
     layerName:"",
-    questionIds:[]
 }
 
 

@@ -98,3 +98,10 @@ form {
   margin-left: 10px;
   text-decoration: #282c34;
 }
+
+#radarChart{
+  max-width: 500px;
+  max-height: 500px;
+  align-items: center;
+  margin: 0ch;
+}
