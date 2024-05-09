@@ -29,7 +29,7 @@ export function NewTestComponent(){
   const [selectedMark, setSelectedMark] = useState<number | null>(null);
   const [selectedMarks, setSelectedMarks] = useState<number[]>([]);
     const[questions, setQuestions] = useState<IQuestion[]>([]);
-    const[marks, setMarks] = useState<IMark[]>([]);
+    //const[marks, setMarks] = useState<IMark[]>([]);
   
   const handleMarkSelection = (value: number) => {
     setSelectedMark(value);
@@ -57,14 +57,14 @@ export function NewTestComponent(){
         setQuestions(response.data)});
 }, []);
 
-useEffect(() => {
-    if (questions.length > 0) {
-        const questionId = questions[currentQuestionIndex].questionId; // Предположим, что у каждого вопроса есть уникальный идентификатор id
-        QuestionService.getMarksByQuestionId(questionId).then((response) => {
-            setMarks(response.data);
-        });
-    }
-}, [currentQuestionIndex, questions]);   
+// useEffect(() => {
+//     if (questions.length > 0) {
+//         const questionId = questions[currentQuestionIndex].questionId; // Предположим, что у каждого вопроса есть уникальный идентификатор id
+//         QuestionService.getMarksByQuestionId(questionId).then((response) => {
+//             setMarks(response.data);
+//         });
+//     }
+// }, [currentQuestionIndex, questions]);   
 
   return (
     <div>
@@ -75,7 +75,7 @@ useEffect(() => {
         <p>{question.questionAnnot}</p>
       </div>
       <div>
-        {marks.map((mark) => (
+        {question.marks?.map((mark) => (
           <label key={mark.markId}>
             <input
               type="radio"
