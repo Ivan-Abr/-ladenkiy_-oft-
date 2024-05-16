@@ -8,7 +8,8 @@ import {TestGreeting} from "./components/TestPage/TestGreeting";
 import {Menu} from "./components/Menu";
 import {Greeting} from "./components/Greeting";
 import { NewTestComponent } from './components/TestPage/NewTestComponent';
-import { RadarChart } from './components/RadarChart';
+import { RadarChart } from './components/Analysis/RadarChart';
+import {AnalysisGreeting} from "./components/Analysis/AnalysisGreeting";
 
 
 
@@ -33,8 +34,9 @@ function App (){
                     <Route path="/" element = {<Greeting/>}/>
                     <Route path="/crud" element = {<Bookmarks/>}/>
                     <Route path="/test" element={<TestGreeting/>}/>
-                    <Route path="/testing/:orgId" element={<NewTestComponent/>}/>
-                    <Route path='/analysis' element={<RadarChart/>}/>
+                    <Route path="/testing/:orgId" element={<TestComponent/>}/>
+                    <Route path='/analysis' element={<AnalysisGreeting/>}/>
+                    <Route path = '/analysis/:orgId' element={<RadarChart/>}></Route>
                 </Routes></div>
             </Router>
         </div>

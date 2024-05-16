@@ -105,3 +105,18 @@ form {
   align-items: center;
   margin: 0ch;
 }
+
+.centered {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vh; /* Это для центрирования по вертикали */
+  margin-outside: 50px;
+
+}
+
+.logo{
+  width: 150px;
+  height: 130px;
+}

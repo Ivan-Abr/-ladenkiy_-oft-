@@ -1,4 +1,5 @@
 import exp from "node:constants";
+import {finished} from "node:stream";
 
 
 
@@ -74,4 +75,11 @@ export interface IQuestion{
     questionName: string,
     questionAnnot: string
     marks?: IMark[]
+}
+
+export interface IAnswer{
+    avg: number,
+    layer: string,
+    factor: string,
+    year: string
 }
