@@ -1,1 +1,1 @@
-![Alt Text](https://media1.tenor.com/m/Jc9jT66AJRwAAAAd/chipi-chipi-chapa-chapa.gif)
+Front-end часть для проекта по курсовой работе. API для ее работы: https://github.com/Ivan-Abr/MyCourseWork
